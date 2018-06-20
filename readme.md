@@ -24,7 +24,7 @@ __Application.js__
 class Application {
 	run() {
 	    this.wwio = new Webworkio();
-    	this.wwio.service('./myworker.js');
+    	this.wwio.worker('./myworker.js');
     	this.wwio.emit('test', {msg: 'hello'}, function(result) {
 			console.log('web worker initialized', result);
 		});
@@ -36,7 +36,7 @@ __myworker.js__
 
 ```javascript
 const wwio = new Webworkio();
-wwio.service();
+wwio.worker();
 wwio.on('test', function ({msg}, cb) {
   if (msg === 'hello') {
     cb('hello world');

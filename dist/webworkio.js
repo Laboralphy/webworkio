@@ -420,15 +420,15 @@ function isUndefined(arg) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/**
- * This class help you deal with web-workers in a way which looks like the way socket.io deals with websocket input-output.
- * The purpose of this class is to greatly simplify the use of web worker and to mimic socket.io's callback feature.
- * Basically, an application emit a message to a webworker, providing a callback function. The webworker
- * will call this function back after completing its task.
- *
- */
 const EventManager = __webpack_require__(/*! events */ "./node_modules/events/events.js");
 
+/**
+ * see README.md for detail
+ *
+ * @author Raphaël Marandet
+ * @date 2018-06-20
+ *
+ */
 class Webworkio {
 
 	constructor() {
@@ -452,12 +452,28 @@ class Webworkio {
 	 * In worker context : Declares itself as a webworker
 	 * @param [w] {string} worker name (if in application context)
 	 */
-	service(w) {
+	worker(w) {
 		if (w) {
-			this._worker = new Worker(w);
-			this._worker.addEventListener('message', event => this._messageReceived(event.data));
+			if (window && window.Worker) {
+                this._worker = new Worker(w);
+                this._worker.addEventListener('message', event => this._messageReceived(event.data));
+                return this._worker;
+			} else {
+				throw new Error('Web worker feature is not available on this browser.');
+			}
 		} else {
 			addEventListener('message', event => this._messageReceived(event.data));
+		}
+	}
+
+    /**
+	 * Terminates the worker
+     */
+	terminate() {
+		if (this._worker) {
+            this._worker.terminate();
+		} else {
+			close();
 		}
 	}
 
@@ -498,7 +514,7 @@ class Webworkio {
 	 */
 	_log(...args) {
 		if (this._bLog) {
-			console.log(!!this._worker ? '[window]' : '[service]', ...args);
+			console.log(!!this._worker ? '[window]' : '[worker]', ...args);
 		}
 	}
 

@@ -1,10 +1,11 @@
 import Webworkio from '../../../src/Webworkio';
 
 const wwio = new Webworkio();
-wwio.service();
+wwio.worker();
 wwio.on('test', function ({msg}, cb) {
     if (msg === 'hello') {
-        cb('hello world');
+        // callback should always send object type parameters
+        cb({greetings: 'hello world'});
     } else {
         cb('');
     }

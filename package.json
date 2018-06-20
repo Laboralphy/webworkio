@@ -20,6 +20,7 @@
     "worker"
   ],
   "author": "Raphaël Marandet",
+  "email" : "raphael.marandet@gmail.com",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Laboralphy/webworkio/issues"
