@@ -1,3 +1,4 @@
+import Application from './Application';
 const app = new Application();
 
 function main() {

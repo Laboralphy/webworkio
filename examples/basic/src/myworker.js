@@ -1,3 +1,5 @@
+import Webworkio from '../../../src/Webworkio';
+
 const wwio = new Webworkio();
 wwio.service();
 wwio.on('test', function ({msg}, cb) {

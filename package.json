@@ -1,0 +1,32 @@
+{
+  "name": "webworkio",
+  "version": "1.0.0",
+  "description": "This class helps you deal with web-workers in a way which looks like the way socket.io does with websockets.",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "./node_modules/.bin/webpack --watch",
+    "build": "./node_modules/.bin/webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Laboralphy/webworkio.git"
+  },
+  "keywords": [
+    "web",
+    "worker"
+  ],
+  "author": "Raphaël Marandet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Laboralphy/webworkio/issues"
+  },
+  "homepage": "https://github.com/Laboralphy/webworkio#readme",
+  "devDependencies": {
+    "webpack": "^4.12.0",
+    "webpack-cli": "^3.0.8"
+  }
+}

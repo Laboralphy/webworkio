@@ -35,7 +35,7 @@ class Webworkio {
 			this._worker = new Worker(w);
 			this._worker.addEventListener('message', event => this._messageReceived(event.data));
 		} else {
-			addEventListener('message', event => this._messageReceived(vent.data));
+			addEventListener('message', event => this._messageReceived(event.data));
 		}
 	}
 

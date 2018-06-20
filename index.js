@@ -1,3 +1,3 @@
-const Webworkio = require('src/Webkorkio');
+const Webworkio = require('./src/Webworkio');
 
 module.exports = Webworkio;
