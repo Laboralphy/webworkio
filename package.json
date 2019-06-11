@@ -20,7 +20,7 @@
     "worker"
   ],
   "author": "Raphaël Marandet",
-  "email" : "raphael.marandet@gmail.com",
+  "email": "raphael.marandet@gmail.com",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Laboralphy/webworkio/issues"
@@ -29,5 +29,9 @@
   "devDependencies": {
     "webpack": "^4.12.0",
     "webpack-cli": "^3.0.8"
+  },
+  "dependencies": {
+    "lodash": "^4.17.11",
+    "tar": "^4.4.10"
   }
 }
